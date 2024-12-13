@@ -2,16 +2,33 @@ import {
   reactExtension,
   Banner,
   BlockStack,
-} from "@shopify/ui-extensions-react/checkout";
+  Checkbox,
+  Button,
+} from '@shopify/ui-extensions-react/checkout';
 
-export default reactExtension("purchase.checkout.block.render", () => (
+export default reactExtension('purchase.checkout.block.render', () => (
   <Extension />
 ));
 
 function Extension() {
   return (
-    <BlockStack border={"dotted"} padding={"tight"}>
-      <Banner title="save-cart-for-later">Good luck with your assignment!</Banner>
+    <BlockStack padding={'base'}>
+      <Banner title="Save your cart" status="info">
+        Good luck with your assignment!
+        <Checkbox onChange={() => console.log('Checked Item 1')}>
+          Item 1
+        </Checkbox>
+        <Checkbox onChange={() => console.log('Checked Item 2')}>
+          Item 2
+        </Checkbox>
+        <Button
+          onPress={() => {
+            console.log('Save event');
+          }}
+        >
+          Save
+        </Button>
+      </Banner>
     </BlockStack>
   );
 }
