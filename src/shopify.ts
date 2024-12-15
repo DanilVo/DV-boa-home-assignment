@@ -1,8 +1,8 @@
-import dotenv from "dotenv";
-import { shopifyApp } from "@shopify/shopify-app-express";
-import { LATEST_API_VERSION, LogSeverity } from "@shopify/shopify-api";
-import { restResources } from "@shopify/shopify-api/rest/admin/2024-10";
-import { MySQLSessionStorage } from "@shopify/shopify-app-session-storage-mysql";
+import dotenv from 'dotenv';
+import { shopifyApp } from '@shopify/shopify-app-express';
+import { LATEST_API_VERSION, LogSeverity } from '@shopify/shopify-api';
+import { restResources } from '@shopify/shopify-api/rest/admin/2024-10';
+import { MySQLSessionStorage } from '@shopify/shopify-app-session-storage-mysql';
 
 dotenv.config();
 
@@ -13,13 +13,17 @@ export default shopifyApp({
     logger: {
       level: LogSeverity.Error,
     },
+    apiKey: process.env.SHOPIFY_API_KEY,
+    apiSecretKey: process.env.SHOPIFY_API_SECRET_KEY,
+    hostName: process.env.SHOPIFY_HOST_NAME,
+    scopes: ['read_products', 'write_products'],
   },
   auth: {
-    path: "/api/auth",
-    callbackPath: "/api/auth/callback",
+    path: '/api/auth',
+    callbackPath: '/api/auth/callback',
   },
   webhooks: {
-    path: "/api/webhooks",
+    path: '/api/webhooks',
   },
-  sessionStorage: new MySQLSessionStorage(process.env.DATABASE_URL || ""),
+  sessionStorage: new MySQLSessionStorage(process.env.DATABASE_URL || ''),
 });

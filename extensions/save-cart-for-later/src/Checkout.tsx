@@ -4,6 +4,9 @@ import {
   BlockStack,
   Checkbox,
   Button,
+  useCartLines,
+  useSessionToken,
+  useApi,
 } from '@shopify/ui-extensions-react/checkout';
 
 export default reactExtension('purchase.checkout.block.render', () => (
@@ -11,10 +14,23 @@ export default reactExtension('purchase.checkout.block.render', () => (
 ));
 
 function Extension() {
+  const cart = useCartLines();
+  const token = useSessionToken();
+  // console.log(cart);
+
+  const getToken = async () => {
+    const token1 = await token.get();
+    return token1;
+  };
+  // console.log(getToken());
+
+const api = useApi()
+console.log(api);
+
+
   return (
     <BlockStack padding={'base'}>
       <Banner title="Save your cart" status="info">
-        Good luck with your assignment!
         <Checkbox onChange={() => console.log('Checked Item 1')}>
           Item 1
         </Checkbox>
@@ -27,6 +43,13 @@ function Extension() {
           }}
         >
           Save
+        </Button>
+        <Button
+          onPress={() => {
+            console.log('retrieve event');
+          }}
+        >
+          Retrieve latest saved card
         </Button>
       </Banner>
     </BlockStack>

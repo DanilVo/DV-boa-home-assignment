@@ -1,7 +1,7 @@
 # Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
 
 client_id = "7a1d66f3e0be065e99a5496c333eeb85"
-application_url = "https://amendments-victory-citizens-institution.trycloudflare.com"
+application_url = "https://excluded-bench-fighters-gary.trycloudflare.com"
 embedded = true
 name = "boa-home-task-DV"
 handle = "boa-home-task-dv"
@@ -20,9 +20,9 @@ scopes = ""
 
 [auth]
 redirect_urls = [
-  "https://amendments-victory-citizens-institution.trycloudflare.com/auth/callback",
-  "https://amendments-victory-citizens-institution.trycloudflare.com/auth/shopify/callback",
-  "https://amendments-victory-citizens-institution.trycloudflare.com/api/auth/callback"
+  "https://excluded-bench-fighters-gary.trycloudflare.com/auth/callback",
+  "https://excluded-bench-fighters-gary.trycloudflare.com/auth/shopify/callback",
+  "https://excluded-bench-fighters-gary.trycloudflare.com/api/auth/callback"
 ]
 
 [pos]
